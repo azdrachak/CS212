@@ -8,15 +8,15 @@
 import itertools
 
 def imright(h1, h2):
-    "House h1 is immediately right of h2 if h1-h2 == 1."
+    """House h1 is immediately right of h2 if h1-h2 == 1."""
     return h1-h2 == 1
 
 def nextto(h1, h2):
-    "Two houses are next to each other if they differ by 1."
+    """Two houses are next to each other if they differ by 1."""
     return abs(h1-h2) == 1
 
 def zebra_puzzle():
-    "Return a tuple (WATER, ZEBRA indicating their house numbers."
+    """Return a tuple (WATER, ZEBRA indicating their house numbers."""
     houses = first, _, middle, _, _ = [1, 2, 3, 4, 5]
     orderings = list(itertools.permutations(houses)) # 1
     return next((WATER, ZEBRA)
@@ -44,14 +44,14 @@ def zebra_puzzle():
 import time
 
 def timedcall(fn, *args):
-    "Call function with args; return the time in seconds and result."
+    """Call function with args; return the time in seconds and result."""
     t0 = time.clock()
     result = fn(*args)
     t1 = time.clock()
     return t1-t0, result
 
 def average(numbers):
-    "Return the average (arithmetic mean) of a sequence of numbers."
+    """Return the average (arithmetic mean) of a sequence of numbers."""
     return sum(numbers) / float(len(numbers))
 
 def timedcalls(n, fn, *args):

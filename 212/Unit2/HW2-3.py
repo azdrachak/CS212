@@ -18,23 +18,24 @@
 import itertools as itr
 
 def is_palindrome(string):
-    return True if string == ''.join(reversed(string)) else False
+    return True if string == string[::-1] else False
 
 def longest_subpalindrome_slice(text):
     """Return (i, j) such that text[i:j] is the longest palindrome in text."""
-    txt = str(text)
+    txt = str(text).lower()
     curr_pal = ''
     start = 0
     end = 0
     for i in range(len(txt)+1):
         for j in range(i, len(txt)+1):
-            iter_pal = txt.lower()[i: j]
-            if is_palindrome(iter_pal):
-                if len(curr_pal) < len(iter_pal):
-                    curr_pal = iter_pal
-                    start = i
-                    end = j
-    return (start, end)
+            iter_pal = txt[i: j]
+            if len(curr_pal) < len(iter_pal):
+                if is_palindrome(iter_pal):
+                    if len(curr_pal) < len(iter_pal):
+                        curr_pal = iter_pal
+                        start = i
+                        end = j
+    return start, end
 
 
 def test():
